@@ -28,6 +28,8 @@ namespace _300979057_desai__ASS2
         List<BillDetails> Appetizer = new List<BillDetails>();
         List<BillDetails> MainCourse = new List<BillDetails>();
         List<BillDetails> Dessert = new List<BillDetails>();
+
+        private double subTotal = 0.0, tax = 0.0, total = 0.0;
         public MainWindow()
         {
             InitializeComponent();
@@ -89,25 +91,41 @@ namespace _300979057_desai__ASS2
         private void cbBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            string text = (sender as ComboBox).SelectedValue.ToString();
-            lblTest.Content = text;
+            Calculate(text);
+            //lblTest.Content = text;
         }
 
         private void cbAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (sender as ComboBox).SelectedValue.ToString();
-            lblTest.Content = text;
+            Calculate(text);
+            //lblTest.Content = text;
         }
 
         private void cbMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (sender as ComboBox).SelectedValue.ToString();
-            lblTest.Content = text;
+            Calculate(text);
+            //lblTest.Content = text;
         }
 
         private void cbDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (sender as ComboBox).SelectedValue.ToString();
-            lblTest.Content = text;
+            Calculate(text);
+            //lblTest.Content = text;
+        }
+        
+        //Calculator
+        private void Calculate(string itemValue)
+        {
+            if(itemValue == null)
+            {
+                return;
+            }
+            subTotal += Convert.ToDouble(itemValue);
+            lblTest.Content = subTotal;
+
         }
     }
 }

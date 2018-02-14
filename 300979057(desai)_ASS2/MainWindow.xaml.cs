@@ -62,20 +62,52 @@ namespace _300979057_desai__ASS2
             Dessert.Add(new BillDetails { Name = "Mud Pie", Category = "Dessert", Price = 4.95 });
             Dessert.Add(new BillDetails { Name = "Apple Crisp", Category = "Dessert", Price = 5.95 });
 
-            dgCustomer.Visibility = Visibility.Hidden;
-            dgCustomer.ItemsSource = Beverage;
+            //dgCustomer.Visibility = Visibility.Hidden;
+            //dgCustomer.ItemsSource = Beverage;
 
-            cbBeverage.ItemsSource = Beverage;
             // Overwritting DataGrid value to Appetizer
-            //dgCustomer.ItemsSource = Appetizer;
+            //dgCustomer.ItemsSource = Appetizer
 
+            cbBeverage.DisplayMemberPath = "Name";
+            cbBeverage.SelectedValuePath = "Price";
+            cbBeverage.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Beverage });
 
-            //To Display the indetail categories of the Menu
-            //if( Catagory== Beverage)
-            //{
-            //    dgCustomer.ItemsSource = Beverage;
-            //}
+            cbAppetizer.DisplayMemberPath = "Name";
+            cbAppetizer.SelectedValuePath = "Price";
+            cbAppetizer.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Appetizer});
 
+            cbMainCourse.DisplayMemberPath = "Name";
+            cbMainCourse.SelectedValuePath = "Price";
+            cbMainCourse.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = MainCourse  });
+
+            cbDessert.DisplayMemberPath = "Name";
+            cbDessert.SelectedValuePath = "Price";
+            cbDessert.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Dessert });
+
+        }
+
+        private void cbBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           string text = (sender as ComboBox).SelectedValue.ToString();
+            lblTest.Content = text;
+        }
+
+        private void cbAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string text = (sender as ComboBox).SelectedValue.ToString();
+            lblTest.Content = text;
+        }
+
+        private void cbMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string text = (sender as ComboBox).SelectedValue.ToString();
+            lblTest.Content = text;
+        }
+
+        private void cbDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string text = (sender as ComboBox).SelectedValue.ToString();
+            lblTest.Content = text;
         }
     }
 }

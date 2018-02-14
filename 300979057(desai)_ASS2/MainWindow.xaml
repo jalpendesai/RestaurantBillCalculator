@@ -16,18 +16,19 @@
         </DataGrid>
         <Label Content="Select Category : "/>
         <Label Content="Beverage : " HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Name}"/>
+        <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbBeverage_SelectionChanged" />
         
         <Label Content="Appetizer : " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbAppetizer" HorizontalAlignment="Left" Margin="100,50" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbAppetizer" HorizontalAlignment="Left" Margin="100,50" VerticalAlignment="Top" Width="120" SelectionChanged="cbAppetizer_SelectionChanged"/>
 
         <Label Content="Main Course : " HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbMainCourse" HorizontalAlignment="Left" Margin="100,80" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbMainCourse" HorizontalAlignment="Left" Margin="100,80" VerticalAlignment="Top" Width="120" SelectionChanged="cbMainCourse_SelectionChanged"/>
 
         <Label Content="Dessert: " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cbDessert" HorizontalAlignment="Left" Margin="100,110" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbDessert" HorizontalAlignment="Left" Margin="100,110" VerticalAlignment="Top" Width="120" SelectionChanged="cbDessert_SelectionChanged"/>
+        <Label x:Name="lblTest" Content="------" HorizontalAlignment="Left" Margin="147,217,0,0" VerticalAlignment="Top"/>
 
-
+        <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/13c50f26-af13-4dd9-bd0d-f03893ab6fe5/how-to-bind-a-listtype-as-a-itemsource-to-combobox-in-xaml?forum=wpf-->
 
 
 

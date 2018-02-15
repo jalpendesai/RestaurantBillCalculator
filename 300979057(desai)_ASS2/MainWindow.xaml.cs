@@ -30,6 +30,7 @@ namespace _300979057_desai__ASS2
         List<BillDetails> Dessert = new List<BillDetails>();
 
         private double subTotal = 0.0, tax = 0.0, total = 0.0;
+  
         public MainWindow()
         {
             InitializeComponent();
@@ -86,34 +87,114 @@ namespace _300979057_desai__ASS2
             cbDessert.SelectedValuePath = "Price";
             cbDessert.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Dessert });
 
+
         }
+
+
 
         private void cbBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            string text = (sender as ComboBox).SelectedValue.ToString();
             Calculate(text);
             //lblTest.Content = text;
+            
+
+            cmbSelectedChanged(this.cbBeverage);
+
+            //Adding to DataGrid
+            BillDetails selectedBillDetails = (BillDetails)cbBeverage.SelectedItem;
+            dgCustomer.Items.Add(selectedBillDetails);
+            selectedBillDetails.Quantity = 0;
+
+            //Increment Quantity
+            foreach (var item in dgCustomer.Items)
+            {
+                if(item == selectedBillDetails)
+                {
+                    selectedBillDetails.Quantity++;
+                }
+            }
         }
 
         private void cbAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (sender as ComboBox).SelectedValue.ToString();
             Calculate(text);
-            //lblTest.Content = text;
+
+            //Adding to DataGrid
+            BillDetails selectedBillDetails = (BillDetails)cbAppetizer.SelectedItem;
+            dgCustomer.Items.Add(selectedBillDetails);
+            selectedBillDetails.Quantity = 0;
+
+            //Increment Quantity
+            foreach (var item in dgCustomer.Items)
+            {
+                if (item == selectedBillDetails)
+                {
+                    selectedBillDetails.Quantity++;
+                }
+            }
         }
 
         private void cbMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (sender as ComboBox).SelectedValue.ToString();
             Calculate(text);
-            //lblTest.Content = text;
+            //Adding to DataGrid
+            BillDetails selectedBillDetails = (BillDetails)cbMainCourse.SelectedItem;
+            dgCustomer.Items.Add(selectedBillDetails);
+            selectedBillDetails.Quantity = 0;
+
+            //Increment Quantity
+            foreach (var item in dgCustomer.Items)
+            {
+                if (item == selectedBillDetails)
+                {
+                    selectedBillDetails.Quantity++;
+                }
+            }
         }
 
         private void cbDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (sender as ComboBox).SelectedValue.ToString();
             Calculate(text);
-            //lblTest.Content = text;
+
+            //Adding to DataGrid
+            BillDetails selectedBillDetails = (BillDetails)cbDessert.SelectedItem;
+            dgCustomer.Items.Add(selectedBillDetails);
+            selectedBillDetails.Quantity = 0;
+
+            foreach (var item in dgCustomer.Items)
+            {
+                if (item == selectedBillDetails)
+                {
+                    selectedBillDetails.Quantity++;
+                }
+            }
+            //foreach (var item in dgCustomer.Items)
+            //{
+            //   // !dgCustomer.Items.Contains(selectedBillDetails)
+            //    if (item != selectedBillDetails)
+            //    {
+            //        dgCustomer.Items.Add(selectedBillDetails);
+            //        selectedBillDetails.Quantity = 1;
+            //    }
+            //    else
+            //    {
+            //        selectedBillDetails.Quantity++;
+            //    }
+            //}
+            //Increment Quantity
+            //foreach (var item in dgCustomer.Items)
+            //{
+
+            //}
+
+            //cbDessert.SelectedIndex = -1;
+            //cbDessert.Items.Clear();
+            //cbDessert.Text = "";
+
         }
         
         //Calculator
@@ -126,6 +207,21 @@ namespace _300979057_desai__ASS2
             subTotal += Convert.ToDouble(itemValue);
             lblTest.Content = subTotal;
 
+            tax += Convert.ToDouble(itemValue) * .15;
+            lblTax.Content = tax;
+
+            total = subTotal + tax;
+            lblFTotal.Content = total;
+
         }
+
+        private void cmbSelectedChanged(ComboBox cmb)
+        {
+            //if(cmb.SelectedIndex != 1)
+            //{
+            //    Collection.Add(cmb.SelectedItem);
+            //}
+        }
+
     }
 }

@@ -5,15 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_300979057_desai__ASS2"
         mc:Ignorable="d"
-        Title="Restaurant Bill Calculator" Height="350" Width="525">
+        Title="Restaurant Bill Calculator" Height="650" Width="525">
     <Grid Margin="2">
-        <DataGrid x:Name="dgCustomer" AutoGenerateColumns="False" Visibility="Hidden" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Category" Binding="{Binding Category}" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price , StringFormat={}${0}}"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        
         <Label Content="Select Category : "/>
         <Label Content="Beverage : " HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbBeverage_SelectionChanged" />
@@ -26,12 +20,26 @@
 
         <Label Content="Dessert: " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbDessert" HorizontalAlignment="Left" Margin="100,110" VerticalAlignment="Top" Width="120" SelectionChanged="cbDessert_SelectionChanged"/>
-        <Label x:Name="lblTest" Content="------" HorizontalAlignment="Left" Margin="147,217,0,0" VerticalAlignment="Top"/>
+        
         
 
         <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/13c50f26-af13-4dd9-bd0d-f03893ab6fe5/how-to-bind-a-listtype-as-a-itemsource-to-combobox-in-xaml?forum=wpf-->
 
-        <Label Content="Sub Total" HorizontalAlignment="Left" Margin="280,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sub Total : " HorizontalAlignment="Left" Margin="280,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tax : " HorizontalAlignment="Left" Margin="280,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total : " HorizontalAlignment="Left" Margin="280,80,0,0" VerticalAlignment="Top"/>
 
+        <Label x:Name="lblTest" Content="$0.00" HorizontalAlignment="Left" Margin="350,20,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTax" Content="$0.00" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblFTotal" Content="$0.00" HorizontalAlignment="Left" Margin="350,80,0,0" VerticalAlignment="Top"/>
+
+        <DataGrid x:Name="dgCustomer" AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="58.5,150,58.5,0" Width="400" Height="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price , StringFormat={}${0}}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

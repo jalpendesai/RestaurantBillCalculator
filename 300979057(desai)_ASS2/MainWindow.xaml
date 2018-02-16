@@ -8,7 +8,9 @@
         Title="Restaurant Bill Calculator" Height="650" Width="525">
     <Grid Margin="2">
         
-        <Label Content="Select Category : "/>
+        <Label>
+            <Button Content="Clear Bill" Width="75" Margin="140"/>
+        </Label>
         <Label Content="Beverage : " HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbBeverage_SelectionChanged" />
         

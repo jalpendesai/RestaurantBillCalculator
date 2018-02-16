@@ -205,13 +205,19 @@ namespace _300979057_desai__ASS2
                 return;
             }
             subTotal += Convert.ToDouble(itemValue);
-            lblTest.Content = subTotal;
+            //lblTest.Content = subTotal;
+            //Rounding to Two decimals
+            lblTest.Content = String.Format("${0:0.00}", subTotal);
 
             tax += Convert.ToDouble(itemValue) * .15;
-            lblTax.Content = tax;
+            //lblTax.Content = tax;
+            //Rounding to Two decimals
+            lblTax.Content = String.Format("${0:0.00}", tax);
 
             total = subTotal + tax;
-            lblFTotal.Content = total;
+            //lblFTotal.Content = total;
+            //Rounding to Two decimals
+            lblFTotal.Content = String.Format("${0:0.00}", total);
 
         }
 

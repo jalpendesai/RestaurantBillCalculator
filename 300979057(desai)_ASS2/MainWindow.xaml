@@ -9,7 +9,7 @@
     <Grid Margin="2">
         
         <Label>
-            <Button Content="Clear Bill" Width="75" Margin="140"/>
+            <Button x:Name="btnClear" Content="Clear Bill" Width="75" Margin="140" Click="btnClear_Click"/>
         </Label>
         <Label Content="Beverage : " HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbBeverage_SelectionChanged" />

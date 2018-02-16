@@ -196,7 +196,7 @@ namespace _300979057_desai__ASS2
             //cbDessert.Text = "";
 
         }
-        
+
         //Calculator
         private void Calculate(string itemValue)
         {
@@ -219,6 +219,13 @@ namespace _300979057_desai__ASS2
             //Rounding to Two decimals
             lblFTotal.Content = String.Format("${0:0.00}", total);
 
+        }
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            lblTest.Content = "$0.00";
+            lblTax.Content = "$0.00";
+            lblFTotal.Content = "$0.00";
+            //Reset datagrid value
         }
 
         private void cmbSelectedChanged(ComboBox cmb)

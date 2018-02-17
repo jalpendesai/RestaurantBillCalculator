@@ -22,8 +22,10 @@
 
         <Label Content="Dessert: " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbDessert" HorizontalAlignment="Left" Margin="100,110" VerticalAlignment="Top" Width="120" SelectionChanged="cbDessert_SelectionChanged"/>
-        
-        
+
+        <ComboBox x:Name="cbTest" HorizontalAlignment="Left" Margin="100,200" VerticalAlignment="Top" Width="120" DataContextChanged="cbTest_DataContextChanged" />
+
+
 
         <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/13c50f26-af13-4dd9-bd0d-f03893ab6fe5/how-to-bind-a-listtype-as-a-itemsource-to-combobox-in-xaml?forum=wpf-->
 

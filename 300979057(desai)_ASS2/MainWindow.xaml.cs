@@ -87,6 +87,10 @@ namespace _300979057_desai__ASS2
             cbDessert.SelectedValuePath = "Price";
             cbDessert.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Dessert });
 
+            cbTest.DisplayMemberPath = "Name";
+            cbTest.SelectedValuePath = "Price";
+            cbTest.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Dessert });
+
 
         }
 
@@ -135,6 +139,7 @@ namespace _300979057_desai__ASS2
                 }
             }
         }
+
 
         private void cbMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -197,6 +202,26 @@ namespace _300979057_desai__ASS2
 
         }
 
+
+        //Testing DataContext
+        private void cbTest_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            string text = (sender as ComboBox).SelectedValue.ToString();
+            Calculate(text);
+
+            BillDetails selectedBillDetails = (BillDetails)cbTest.SelectedItem;
+            dgCustomer.Items.Add(selectedBillDetails);
+            selectedBillDetails.Quantity = 0;
+
+            foreach (var item in dgCustomer.Items)
+            {
+                if (item == selectedBillDetails)
+                {
+                    selectedBillDetails.Quantity++;
+                }
+            }
+        }
+
         //Calculator
         private void Calculate(string itemValue)
         {
@@ -220,12 +245,24 @@ namespace _300979057_desai__ASS2
             lblFTotal.Content = String.Format("${0:0.00}", total);
 
         }
+
+        
+
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             lblTest.Content = "$0.00";
             lblTax.Content = "$0.00";
             lblFTotal.Content = "$0.00";
             //Reset datagrid value
+            //dgCustomer.ItemsSource = null;
+
+            //dgCustomer.Columns.Clear();
+            dgCustomer.Items.Clear();
+            dgCustomer.Items.Refresh();
+
+
+
+
         }
 
         private void cmbSelectedChanged(ComboBox cmb)

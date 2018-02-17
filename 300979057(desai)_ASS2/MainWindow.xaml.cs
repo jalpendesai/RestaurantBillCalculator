@@ -226,6 +226,15 @@ namespace _300979057_desai__ASS2
 
         }
 
+        private void lbllogo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.centennialcollege.ca/");
+        }
+
+        private void dgCustomer_SlectedIndex()
+        {
+
+        }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {

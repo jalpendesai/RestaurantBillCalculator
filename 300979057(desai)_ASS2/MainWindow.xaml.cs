@@ -87,9 +87,6 @@ namespace _300979057_desai__ASS2
             cbDessert.SelectedValuePath = "Price";
             cbDessert.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Dessert });
 
-            cbTest.DisplayMemberPath = "Name";
-            cbTest.SelectedValuePath = "Price";
-            cbTest.SetBinding(ComboBox.ItemsSourceProperty, new Binding() { Source = Dessert });
 
 
         }
@@ -118,6 +115,7 @@ namespace _300979057_desai__ASS2
                     selectedBillDetails.Quantity++;
                 }
             }
+            
         }
 
         private void cbAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -202,25 +200,7 @@ namespace _300979057_desai__ASS2
 
         }
 
-
-        //Testing DataContext
-        private void cbTest_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            string text = (sender as ComboBox).SelectedValue.ToString();
-            Calculate(text);
-
-            BillDetails selectedBillDetails = (BillDetails)cbTest.SelectedItem;
-            dgCustomer.Items.Add(selectedBillDetails);
-            selectedBillDetails.Quantity = 0;
-
-            foreach (var item in dgCustomer.Items)
-            {
-                if (item == selectedBillDetails)
-                {
-                    selectedBillDetails.Quantity++;
-                }
-            }
-        }
+        
 
         //Calculator
         private void Calculate(string itemValue)
@@ -246,7 +226,6 @@ namespace _300979057_desai__ASS2
 
         }
 
-        
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
@@ -260,7 +239,9 @@ namespace _300979057_desai__ASS2
             dgCustomer.Items.Clear();
             dgCustomer.Items.Refresh();
 
-
+            cbDessert.IsDropDownOpen = true;
+            cbDessert.IsDropDownOpen = false;
+            cbDessert.Items.Refresh();
 
 
         }

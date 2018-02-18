@@ -5,22 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_300979057_desai__ASS2"
         mc:Ignorable="d"
-        Title="Restaurant Bill Calculator" Height="650" Width="525">
+        Title="Restaurant Bill Calculator" Height="600" Width="500" Background="#204C57">
     <Grid Margin="10">
 
         <Label>
-            <Button x:Name="btnDelete" Content="Delete This" Width="75" Margin="200" Click="btnDelete_Click"/>
+            <Button x:Name="btnDelete" Content="DeleteRow" Width="63" Margin="100,445,0,0"  Click="btnDelete_Click"/>
         </Label>
-        <Label Content="Beverage : " HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top"/>
+        <Label>
+            <Button x:Name="btnEdit" Content="EditRow" Width="63" Margin="170,445,0,0"  Click="btnDelete_Click"/>
+        </Label>
+        <Label Content="Beverage" HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="85"/>
         <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbBeverage_SelectionChanged" />
 
-        <Label Content="Appetizer : " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Appetizer " HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="85"/>
         <ComboBox x:Name="cbAppetizer" HorizontalAlignment="Left" Margin="100,50" VerticalAlignment="Top" Width="120" SelectionChanged="cbAppetizer_SelectionChanged"/>
 
-        <Label Content="Main Course : " HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Main Course  " HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="85"/>
         <ComboBox x:Name="cbMainCourse" HorizontalAlignment="Left" Margin="100,80" VerticalAlignment="Top" Width="120" SelectionChanged="cbMainCourse_SelectionChanged"/>
 
-        <Label Content="Dessert: " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dessert " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="85"/>
         <ComboBox x:Name="cbDessert" HorizontalAlignment="Left" Margin="100,110" VerticalAlignment="Top" Width="120" SelectionChanged="cbDessert_SelectionChanged" />
 
 
@@ -28,15 +31,15 @@
 
         <!--https://social.msdn.microsoft.com/Forums/vstudio/en-US/13c50f26-af13-4dd9-bd0d-f03893ab6fe5/how-to-bind-a-listtype-as-a-itemsource-to-combobox-in-xaml?forum=wpf-->
 
-        <Label Content="Sub Total : " HorizontalAlignment="Left" Margin="280,20,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tax : " HorizontalAlignment="Left" Margin="280,50,0,0" VerticalAlignment="Top"/>
-        <Label Content="Total : " HorizontalAlignment="Left" Margin="280,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sub Total: " HorizontalAlignment="Left" Margin="280,20,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="68"/>
+        <Label Content="Tax : " HorizontalAlignment="Left" Margin="280,50,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="68"/>
+        <Label Content="Total : " HorizontalAlignment="Left" Margin="280,80,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#FFB2CED9" Width="68"/>
 
-        <Label x:Name="lblTest" Content="$0.00" HorizontalAlignment="Left" Margin="350,20,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblTax" Content="$0.00" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblFTotal" Content="$0.00" HorizontalAlignment="Left" Margin="350,80,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTest" Content="$0.00" HorizontalAlignment="Left" Margin="350,20,0,0" VerticalAlignment="Top"  Background="#FFF1F1F1" Width="45"/>
+        <Label x:Name="lblTax" Content="$0.00" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" Background="#FFF1F1F1" Width="45"/>
+        <Label x:Name="lblFTotal" Content="$0.00" HorizontalAlignment="Left" Margin="350,80,0,0" VerticalAlignment="Top" Background="#FFF1F1F1" Width="45"/>
 
-        <DataGrid x:Name="dgCustomer" AutoGenerateColumns="true" ItemsSource="{Binding}" Margin="58.5,150,58.5,0" Width="400" Height="200" Background="#FFF5BABA" BorderBrush="#FF959595" Foreground="#FF5B1E1E" HorizontalGridLinesBrush="Black"
+        <DataGrid x:Name="dgCustomer" AutoGenerateColumns="true" ItemsSource="{Binding}" Margin="58.5,150,58.5,0" Width="400" Height="200" Background="#B2CED9" BorderBrush="#13393D" Foreground="#13393D" HorizontalGridLinesBrush="Black"
                    CanUserDeleteRows="True" CanUserAddRows="True">
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
@@ -44,6 +47,7 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <!--for Deleting Rows-->
+                
                 <!--<DataGridTemplateColumn Header="Delete" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -52,10 +56,10 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>-->
                 
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price , StringFormat={}${0}}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="140" />
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="90"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price , StringFormat={}${0}}" Width="60"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="60"/>
             </DataGrid.Columns>
             
            
@@ -75,6 +79,6 @@
             </StatusBar>
 
         </DockPanel>
-        <Button x:Name="export" Content="Export to Excel" HorizontalAlignment="Left" Margin="220,509,0,0" VerticalAlignment="Top" Width="75" Click="export_Click"/>
+        <Button x:Name="export" Content="Export to Excel" HorizontalAlignment="Center" Margin="220,450,0,0" VerticalAlignment="Top" Width="100" Click="export_Click"/>
     </Grid>
 </Window>

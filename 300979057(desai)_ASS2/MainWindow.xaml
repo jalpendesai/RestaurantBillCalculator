@@ -9,7 +9,7 @@
     <Grid Margin="10">
 
         <Label>
-            <Button x:Name="btnClear" Content="Clear Bill" Width="75" Margin="140" Click="btnClear_Click"/>
+            <Button x:Name="btnDelete" Content="Delete This" Width="75" Margin="200" Click="btnDelete_Click"/>
         </Label>
         <Label Content="Beverage : " HorizontalAlignment="Left" Margin="10,20" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbBeverage" HorizontalAlignment="Left" Margin="100,20" VerticalAlignment="Top" Width="120" SelectionChanged="cbBeverage_SelectionChanged" />
@@ -36,18 +36,31 @@
         <Label x:Name="lblTax" Content="$0.00" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblFTotal" Content="$0.00" HorizontalAlignment="Left" Margin="350,80,0,0" VerticalAlignment="Top"/>
 
-        <DataGrid x:Name="dgCustomer" AutoGenerateColumns="true" ItemsSource="{Binding}" Margin="58.5,150,58.5,0" Width="400" Height="200" Background="#FFF5BABA" BorderBrush="#FF959595" Foreground="#FF5B1E1E" HorizontalGridLinesBrush="Black" >
+        <DataGrid x:Name="dgCustomer" AutoGenerateColumns="true" ItemsSource="{Binding}" Margin="58.5,150,58.5,0" Width="400" Height="200" Background="#FFF5BABA" BorderBrush="#FF959595" Foreground="#FF5B1E1E" HorizontalGridLinesBrush="Black"
+                   CanUserDeleteRows="True" CanUserAddRows="True">
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                    Color="#FF0000"/>
             </DataGrid.Resources>
             <DataGrid.Columns>
+                <!--for Deleting Rows-->
+                <!--<DataGridTemplateColumn Header="Delete" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Remove Row" Tag="{Binding}"  Command="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+                
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
                 <DataGridTextColumn Header="Price" Binding="{Binding Price , StringFormat={}${0}}"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
+            
+           
         </DataGrid>
+        
         <DockPanel>
             <StatusBar DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
                 <Label x:Name="lbllogo" MouseDown="lbllogo_MouseDown"  Height="42" Width="133">
@@ -62,5 +75,6 @@
             </StatusBar>
 
         </DockPanel>
+        <Button x:Name="export" Content="Export to Excel" HorizontalAlignment="Left" Margin="220,509,0,0" VerticalAlignment="Top" Width="75" Click="export_Click"/>
     </Grid>
 </Window>
